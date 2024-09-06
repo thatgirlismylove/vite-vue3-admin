@@ -1,0 +1,12 @@
+//自定义 element plus 主题色
+$--color-primary: #bc8c4d;
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': $--color-primary
+    )
+  )
+);
+
+@use 'element-plus/theme-chalk/src/index.scss' as *;
