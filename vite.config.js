@@ -7,7 +7,11 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import { visualizer } from "rollup-plugin-visualizer";
+
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+
+import { visualizer } from 'rollup-plugin-visualizer'
 
 import UnoCSS from 'unocss/vite'
 
@@ -26,7 +30,9 @@ export default defineConfig(({ mode }) => {
         resolvers: [
           ElementPlusResolver({
             importStyle: 'scss'
-          })
+          }),
+          // 自动导入图标组件
+          IconsResolver()
         ],
         dts: false,
         imports: ['vue', 'vue-router', 'pinia'],
@@ -45,10 +51,20 @@ export default defineConfig(({ mode }) => {
         resolvers: [
           ElementPlusResolver({
             importStyle: 'scss'
-          })
+          }),
+          // 自动注册图标组件
+          // 图标命名规范 {prefix}-{collection}-{icon} 例如：i-ep-add
+          IconsResolver({
+            // element-plus图标库，其他图标库 https://icon-sets.iconify.design/
+            enabledCollections: ["ep"],
+          }),
         ]
       }),
-      visualizer()
+      Icons({
+        // 自动安装图标库
+        autoInstall: true,
+      }),
+      visualizer() // 构建分析工具 生成 stat.html 文件
     ],
     css: {
       // CSS 预处理器
@@ -79,7 +95,7 @@ export default defineConfig(({ mode }) => {
     build: {
       sourcemap: true,
       chunkSizeWarningLimit: 2000, // 消除打包大小超过500kb警告
-      minify: 'esbuild',
+      minify: 'esbuild'
       // minify: 'terser', // Vite 2.6.x 以上需要配置 minify: "terser", terserOptions 才能生效
       // terserOptions: {
       //   compress: {
@@ -94,7 +110,7 @@ export default defineConfig(({ mode }) => {
     },
     esbuild: {
       treeShaking: true,
-      drop: ['debugger', 'console'],
+      drop: ['debugger', 'console']
     }
   }
 })

@@ -10,8 +10,9 @@
         <SwitchLanguage />
 
         <div class="flex items-center">
+          <!-- 自动导入图标 -->
           <el-icon>
-            <setting />
+            <i-ep-setting />
           </el-icon>
           <span>{{ t('message.hello') }}</span>
         </div>
@@ -22,7 +23,8 @@
 </template>
 
 <script setup>
-import { Setting } from '@element-plus/icons-vue'
+// import { Setting } from '@element-plus/icons-vue';
 import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n()
 </script>

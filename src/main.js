@@ -3,15 +3,13 @@ import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 import App from './App.vue'
-import ElementPlus from 'element-plus'
 import router from './router'
 
 import 'dayjs/locale/zh-cn'
 
 import 'virtual:uno.css'
-import '@unocss/reset/tailwind.css'
+import '@unocss/reset/tailwind-compat.css'
 
-// 需要放在 reset/tailwind.css 之后引入，以防止 tailwind 覆盖了 button 按钮样式
 import './styles/index.scss'
 
 import '@/permission'
@@ -27,4 +25,4 @@ app.directive('permission', operatorPermission)
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
-app.use(pinia).use(ElementPlus).use(router).use(i18n).mount('#app')
+app.use(pinia).use(router).use(i18n).mount('#app')
