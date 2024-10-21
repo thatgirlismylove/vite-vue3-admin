@@ -19,7 +19,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
-      "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+      "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .eslintignore",
       "prettier --write"
     ]
   },
