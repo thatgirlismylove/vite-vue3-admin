@@ -15,7 +15,7 @@
 	"format": "prettier --write src/",
 	"check-files": "run-s lint format",
 	"commit": "git-cz",
-	"lint:stylelint": "stylelint  \"**/*.{css,scss,vue,html}\" --fix",
+	"lint:stylelint": "stylelint  \"**/*.{css,scss,less,vue,html}\" --fix",
 	"prepare": "husky"
   },
   "lint-staged": {
