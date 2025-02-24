@@ -1,13 +1,17 @@
 <script setup>
 defineOptions({
-  name: 'History'
+	name: 'History'
 })
 </script>
 
 <template>
-  <div>
-    <div>history page</div>
-  </div>
+	<div>
+		<div class="box">history page</div>
+	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.box {
+	background: #f5f5f5;
+}
+</style>
