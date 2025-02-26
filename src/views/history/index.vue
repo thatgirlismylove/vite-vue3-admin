@@ -13,5 +13,6 @@ defineOptions({
 <style scoped>
 .box {
 	background: #f5f5f5;
+	paddings: 0 10px;
 }
 </style>
