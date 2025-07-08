@@ -71,7 +71,6 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {
         // 定义全局 SCSS 变量
         scss: {
-          javascriptEnabled: true,
           additionalData: `@use "@/styles/variables.scss" as *;`
         }
       }
